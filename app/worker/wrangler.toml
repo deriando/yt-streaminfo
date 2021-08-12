@@ -1,0 +1,12 @@
+name = "yt-streaminfo"
+type = "webpack"
+
+account_id = "ee141fa9dc98af2cb3bfd694561b07eb"
+workers_dev = true
+
+[env.production]
+route = "yt-streaminfo.deriando.xyz/worker/*"
+zone_id = "efe3b84719af01d245a419250b584512"
+
+# [secrets]
+# YOUTUBE_API_KEY
