@@ -21,7 +21,6 @@ async function handleRequest(request) {
   const yt_id = request.url.match(regex);
   // fetch YouTube API and return desired data
   const result = await getYouTubeData(yt_id);
-  console.log(result);
   return new Response(result, {
     headers: { "content-type": "application/json" },
   });
