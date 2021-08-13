@@ -22,10 +22,14 @@ async function get_youtube_data() {
   return data;
 }
 
-/* function handle_form(URL) {
+function handle_form() {
+  const url = document.getElementById("id").value;
   const regex = /([\w-]{11})/gi;
-  const yt_id = URL.match(regex);
-} */
+  const yt_id = url.match(regex);
+  console.log(yt_id[0]);
+
+  window.location.assign(`/?id=${yt_id[0]}`);
+}
 
 async function write_data_to_html(bool) {
   switch (bool) {
@@ -55,48 +59,65 @@ async function write_data_to_html(bool) {
           (60 * 1000)
       );
 
+      document.getElementById("app-name").remove();
+
       document.getElementById("App").innerHTML = `
-      <image src=${thumbnails.medium.url}>
-      <h1 class="title">Title</h1>
-      <h2 class="subtitle">${title}</h2>
+      <div class="container">
+        <image id="thumbnail" srcset="${thumbnails.standard.url} ${thumbnails.standard.width}" src=${thumbnails.standard.url} alt="">
+        <div class="data-container">
+            <div class="group">
+              <p class="field-name">Title</p>
+              <p class="data">${title}</p>
+            </div>
+            <div class="group">
+              <p class="field-name">Channel Name</p>
+              <p class="data">${channelTitle}</p>
+            </div>
 
-      <h1 class="title">Channel Name</h1>
-      <h2 class="subtitle">${channelTitle}</h2>
-
-      <h1 class="title">Start Time</h1>
-      <h2 class="subtitle">${startTime}</h2>
-
-      <h1 class="title">End Time</h1>
-      <h2 class="subtitle">${endTime}</h2>
-
-      <h1 class="title">Time Since Stream</h1>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Day/s</th>
-            <th>Hour/s</th>
-            <th>Minute/s</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>${day_SinceStartTime}</td>
-            <td>${hr_SinceStartTime}</td>
-            <td>${min_SinceStartTime}</td>
-          </tr>
-        </tbody>
-      </table>
+            <div class="group">
+              <p class="field-name">Start Time</p>
+              <p class="data">${startTime}</p>
+            </div>
+            <div class="group">
+              <p class="field-name">End Time</p>
+              <p class="data">${endTime}</p>
+            </div>
+          <div class="group">
+            <p class="field-name">Time Since Stream</p>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Day/s</th>
+                  <th>Hour/s</th>
+                  <th>Minute/s</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>${day_SinceStartTime}</td>
+                  <td>${hr_SinceStartTime}</td>
+                  <td>${min_SinceStartTime}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
       `;
       break;
 
     default:
-      /* document.getElementById("App").innerHTML = `
-      <form onsubmit="handle_form()">
-      <label for="id">Video ID:</label>
-      <input type="text" id="id" name="id">
-      <button type="submit">Submit</button>
-      </form>
-      `; */
+      document.getElementById("App").innerHTML = `
+      <div class="container">
+        <div class="form">
+          <form onsubmit="handle_form(); return false;">
+          <label for="id">Video ID:</label>
+          <input type="text" id="id" name="id">
+          <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+      `;
       break;
   }
 }

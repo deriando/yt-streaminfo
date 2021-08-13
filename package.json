@@ -8,8 +8,8 @@
     "app/*"
   ],
   "scripts": {
-    "dev-webui": "cd ./app/webui/src && npx serve",
-    "dev-worker": "cd ./app/worker && npx @cloudflare/wrangler dev --host='localhost'",
-    "deploy-worker": "cd ./app/worker && npx @cloudflare/wrangler publish --env production"
+    "dev-webui": "cd ./app/webui/src && yarn dlx serve",
+    "dev-worker": "cd ./app/worker && yarn dlx @cloudflare/wrangler dev --host='localhost'",
+    "deploy-worker": "cd ./app/worker && yarn dlx @cloudflare/wrangler publish --env production"
   }
 }

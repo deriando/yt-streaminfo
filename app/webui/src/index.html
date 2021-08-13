@@ -4,15 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YT StreamInfo</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
     <script src="./js/index.js"></script>
   </head>
-  <body class="is-flex is-justify-content-center">
-    <div class="is-flex is-flex-direction-column">
-      <h1 class="title">YT StreamInfo</h1>
+  <style>
+    body {
+      background-color: #000000;
+      color: #ffffff;
+      font-family: sans-serif;
+    }
+    #app-name {
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+    .field-name {
+      font-size: larger;
+      text-decoration: underline;
+    }
+    .form {
+      text-align: center;
+    }
+
+    #thumbnail {
+      max-width: 320px;
+    }
+
+    @media (min-width: 640px) {
+      .inline-data {
+        display: flex;
+      }
+      .data-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h1 id="app-name">YT StreamInfo</h1>
       <noscript>You need JavaScript enabled for this app</noscript>
       <div id="App"></div>
     </div>
