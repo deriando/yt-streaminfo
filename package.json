@@ -4,12 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "app/*"
-  ],
   "scripts": {
-    "dev-webui": "cd ./app/webui/src && yarn dlx serve",
-    "dev-worker": "cd ./app/worker && yarn dlx @cloudflare/wrangler dev --host='localhost'",
-    "deploy-worker": "cd ./app/worker && yarn dlx @cloudflare/wrangler publish --env production"
+    "dev-webui": "cd ./app/webui/src && npx serve",
+    "dev-worker": "cd ./app/worker && wrangler dev --host='localhost'",
+    "deploy-worker": "cd ./app/worker && wrangler publish --env production"
+  },
+  "devDependencies": {
+    "@cloudflare/wrangler": "^1.19.2"
   }
 }

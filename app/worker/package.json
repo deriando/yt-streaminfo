@@ -1,6 +1,0 @@
-{
-  "name": "worker",
-  "packageManager": "yarn@3.0.0",
-  "private": true,
-  "main": "index.js"
-}
